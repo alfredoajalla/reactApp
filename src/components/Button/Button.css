@@ -1,5 +1,7 @@
 .custom-buttom {
-    color: tomato;
-    background-color: aquamarine;
-  }
-  
+  background-color: aquamarine;
+}
+
+.color-red {
+  color: red;
+}

@@ -1,29 +1,31 @@
+import { ReactNode } from 'react'
 import './App.css'
-import { useFetch } from './hooks';
-
-const url = "http://api.example.com";
-
-interface Data {
-  name: string;
-  lastName: string;
-  age: number;
-}
+import { AppForm, Button, ColorRed } from './components'
 
 function App() {
-  const {data, loading, error } = useFetch<Data>(url);
-  
-  if(loading) {
-    return <div>Loading...</div>
+  // Validations
+  // submit
+  const submit = () => {
+    console.log("submited");
   }
-  
-  if (error) {
-    return <div>UPS! There is an error: {error.message}</div>
+  const handleClick = () => {
+    console.log("Pressed a Button")
   }
-  
-  return (
-    <div>{JSON.stringify(data)}</div>
-  )
 
+  const sayHello = () => {
+    alert("Hello!")
+  }
+
+  return (
+    <>
+    <ColorRed><Button parentMethod={sayHello}>My Red Button</Button></ColorRed>
+    <Button parentMethod={handleClick}>Normal Button</Button>
+    
+    <AppForm>
+      <button type="submit" onClick={submit}></button>
+    </AppForm>
+    </>
+  )
 }
 
 export default App
